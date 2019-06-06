@@ -22,5 +22,4 @@ fi
 
 echo "Opening pull request URL"
 
-google-chrome "${PR_URL}" 2>/dev/null
-
+xdg-open "${PR_URL}" 2>/dev/null
