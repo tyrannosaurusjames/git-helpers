@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+$prMap = [
+    'cnz' => 'https://bitbucket.org/careersnz/silverstripe/pull-requests/new',
+    'tec' => 'https://bitbucket.org/careersnz/moetec-server-base/pull-requests/new',
+    'itf' => 'https://bitbucket.org/careersnz/inspiring-the-future-web/pull-requests/new'
+];
+
+if ($argc !== 4) {
+    $pathinfo = pathinfo($argv[0]);
+    echo "Usage: {$pathinfo['filename']} <project_id> <source_branch> <target_branch>\n";
+    exit(1);
+}
+
+$url = "{$prMap[$argv[1]]}?source={$argv[2]}&dest={$argv[3]}";
+
+system("xdg-open \"{$url}\" 2>/dev/null");
